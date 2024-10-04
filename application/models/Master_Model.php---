@@ -1,0 +1,267 @@
+<?php
+class Master_Model extends CI_Model
+{
+	function Add_Location($userdata){
+		if($this->db->insert('mst_location', $userdata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Get_Location(){
+		$query = $this->db->query("select id,location_name,created_by from mst_location");
+		return $query->result_array();
+	}
+
+	function Get_Location_byid($id){
+		$query = $this->db->query("select id,location_name,created_by from mst_location where id = '".$id."'");
+		return $query->result_array();
+	}
+
+	function Update_Location($updatedata,$id){
+		$this->db->where('id', $id);
+		if($this->db->update('mst_location', $updatedata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Delete_Location($id){
+		if($this->db->query("DELETE FROM mst_location WHERE id='".$id."'")){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+	//Sub Category
+	function Add_subcat($userdata){
+		if($this->db->insert('mst_subcat', $userdata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Get_subcat(){
+		$query = $this->db->query("select id,Assetsubcategory,created_by from mst_subcat");
+		return $query->result_array();
+	}
+
+	function Get_subcat_byid($id){
+		$query = $this->db->query("select id,Assetsubcategory,created_by from mst_subcat where id = '".$id."'");
+		return $query->result_array();
+	}
+
+	function Update_subcat($updatedata,$id){
+		$this->db->where('id', $id);
+		if($this->db->update('mst_subcat', $updatedata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Delete_Assetsubcategory($id){
+		if($this->db->query("DELETE FROM mst_subcat WHERE id='".$id."'")){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	/* Departmant master */
+	function Add_Dep($userdata){
+		if($this->db->insert('mst_Dep', $userdata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Get_Dep(){
+		$query = $this->db->query("select id,dep_name,created_by from mst_Dep");
+		return $query->result_array();
+	}
+
+	function Get_Dep_by_id($id){
+		$query = $this->db->query("select id,dep_name,created_by from mst_Dep where id = '".$id."'");
+		return $query->result_array();
+	}
+
+	function Delete_Dept($id){
+		if($this->db->query("DELETE FROM mst_Dep WHERE id='".$id."'")){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Update_Dept($updatedata,$id){
+		$this->db->where('id', $id);
+		if($this->db->update('mst_Dep', $updatedata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	/* Asset Type master */
+
+	function Add_Asset_Type($userdata){
+		if($this->db->insert('mst_asset_type', $userdata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Get_Asset_Type(){
+		$query = $this->db->query("select id,type_name,created_by from mst_asset_type");
+		return $query->result_array();
+	}
+
+	function Get_Asset_Type_by_id($id){
+		$query = $this->db->query("select id,type_name,created_by from mst_asset_type where id ='".$id."'");
+		return $query->result_array();
+	}
+
+	function Delete_Asset_Type($id){
+		if($this->db->query("DELETE FROM mst_asset_type WHERE id='".$id."'")){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Update_AssetType($updatedata,$id){
+		$this->db->where('id', $id);
+		if($this->db->update('mst_asset_type', $updatedata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+
+/* Plant Master */
+
+	function Add_Plant($userdata){
+		if($this->db->insert('mst_plant', $userdata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Get_Plant(){
+		$query = $this->db->query("select id,plant_name,created_by,plant_email from mst_plant");
+		return $query->result_array();
+	}
+
+	function Get_Plant_by_id($id){
+		$query = $this->db->query("select id,plant_name,created_by,plant_email from mst_plant where id ='".$id."' ");
+		return $query->result_array();
+	}
+
+	function Get_Plant_ByID($id){
+		$query = $this->db->query("select id,plant_name,created_by,plant_email from mst_plant where id = '".$id."'");
+		return $query->result_array();
+	}
+
+	function Delete_Plant($id){
+		if($this->db->query("DELETE FROM mst_plant WHERE id='".$id."'")){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Update_Plant($updatedata,$id){
+		$this->db->where('id', $id);
+		if($this->db->update('mst_plant', $updatedata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	/* Asset Status Master */
+
+	function Add_Status($userdata){
+		if($this->db->insert('mst_asset_status', $userdata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Get_Status(){
+		$query = $this->db->query("select id,status_name,created_by from mst_asset_status");
+		return $query->result_array();
+	}
+
+	function Get_Status_BYID($id){
+		$query = $this->db->query("select id,status_name,created_by from mst_asset_status where id ='".$id."' ");
+		return $query->result_array();
+	}
+
+	function Delete_Status($id){
+		if($this->db->query("DELETE FROM mst_asset_status WHERE id='".$id."'")){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Update_AssetStatus($updatedata,$id){
+		$this->db->where('id', $id);
+		if($this->db->update('mst_asset_status', $updatedata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	/* Asset Class Master */
+
+	function Add_AssetClass($userdata){
+		if($this->db->insert('mst_cat', $userdata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Get_AssetClass(){
+		$query = $this->db->query("select id,cat,created_by from mst_cat");
+		return $query->result_array();
+	}
+
+	function Get_AssetClass_by_id($id){
+		$query = $this->db->query("select id,cat,created_by from mst_cat where id='".$id."' ");
+		return $query->result_array();
+	}
+
+	function Delete_AssetClass($id){
+		if($this->db->query("DELETE FROM mst_cat WHERE id='".$id."'")){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	function Update_AssetClass($updatedata,$id){
+		$this->db->where('id', $id);
+		if($this->db->update('mst_cat', $updatedata)){
+			return TRUE;
+		}else{
+			return false;
+		}
+	}
+
+	
+
+}
+?>
